@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesso e antecessor</title>
+</head>
+<body style="text-align: center;">
+    <h1>Sucessor e antecessor de um número</h1>
+    <label for="num">digite um número</label>
+    <input id="num" type="number" placeholder="digite um número">
+    <button onclick="calcularValores()">verificar</button>
+    <p class="msg"></p>
+    <script>
+        const num = document.querySelector('#num')
+        const msg = document.querySelector('.msg')
+        calcularValores = () => {
+            if (num.value != "") {
+                const antecessor = Number(num.value) -1
+                const sucessor = Number(num.value) +1
+                msg.innerHTML = `Sucessor ${sucessor}, antecessor ${antecessor}`
+            } else {
+                msg.innerHTML = "digite o valor antes"
+            }
+            num.value = ""
+        }
+    </script>
+</body>
+</html>

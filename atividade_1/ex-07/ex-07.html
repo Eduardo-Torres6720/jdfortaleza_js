@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo de download</title>
+</head>
+<body style="text-align: center;">
+    <h1>Tempo de download</h1>
+    <div>
+        <label for="arquivo">digite o tamanho do arquivo em MB</label>
+        <input id="arquivo" type="number" placeholder="arquivo em MB">
+    </div>
+    <div>
+        <label for="internet">digite a velocidade da internet em mbps</label>
+        <input id="internet" type="number" placeholder="internet em mbps">
+    </div>
+    <button onclick="calcular()">Calcular</button>
+    <p class="msg"></p>
+
+    <script>
+        const arquivo = document.querySelector('#arquivo')
+        const internet = document.querySelector('#internet')
+        calcular = () => {
+            const msg = document.querySelector('.msg')
+            if (arquivo.value == '' && internet.value == '') {
+                msg.innerHTML = "informe os valores antes de enviar"
+            } else {
+                const velocidadeDownload = Number(arquivo.value) / (Number(internet.value) / 8)
+                const velocidadeMinutos = velocidadeDownload / 60
+                msg.innerHTML = `tempo estimado: ${velocidadeMinutos} minutos`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de salário</title>
+</head>
+<body style="text-align: center;">
+    <h1>Calculo de salário</h1>
+    <div>
+        <label for="salario-hora">digite quanto ganha por hora</label>
+        <input id="salario-hora" type="number" placeholder="salário por hora">
+    </div>
+    <div>
+        <label for="carga-horaria">digite sua carga horária por dia</label>
+        <input id="carga-horaria" type="number" placeholder="carga horária">
+    </div>
+    <button onclick="calcularSalario()">calcular salário</button>
+    <p class="msg"></p>
+    <script>
+        const salarioHora = document.querySelector('#salario-hora')
+        const cargaHoraria = document.querySelector('#carga-horaria')
+        calcularSalario = () => {
+            const msg = document.querySelector('.msg')
+            if (salarioHora.value == "" && cargaHoraria.value == "") {
+                msg.innerHTML = "informe os valores antes de realizar a conta"
+            } else {
+                const salario = (Number(salarioHora.value) * Number(cargaHoraria.value)) * 30
+                msg.innerHTML = `seu salario mensal é ${salario}`
+            }
+        }
+
+    </script>
+</body>
+</html>

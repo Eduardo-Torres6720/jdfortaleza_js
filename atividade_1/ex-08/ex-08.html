@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boa noite</title>
+</head>
+<body style="text-align: center;">
+    <h1 class="msg">Como vai humano?</h1>
+    <label for="nome">como você se chama?</label>
+    <input id="nome" type="text" placeholder="Nome">
+    <button onclick="enviar()">enviar</button>
+    
+    <script>
+        const tempo = new Date()
+        const horas = tempo.getHours()
+        const msg = document.querySelector('.msg')
+        const nome = document.querySelector('#nome') 
+        enviar = () => {
+            if (nome.value != "") {
+                if (horas >= 5 && horas < 12) {
+                    msg.innerHTML = `boa manha ${nome.value}`
+                } else if (horas >= 12 && horas < 18) {
+                    msg.innerHTML = `boa tarde ${nome.value}`
+                } else if (horas >= 18 && horas < 5) {
+                    msg.innerHTML = `boa noite ${nome.value}`
+                }
+            }
+            nome.value = ""
+        }
+    </script>
+</body>
+</html>

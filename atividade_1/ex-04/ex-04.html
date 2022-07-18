@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Media das notas bimestrais</title>
+</head>
+<body style="text-align: center;">
+    <h1>Media das notas bimestrais</h1>
+    <main>
+        <div>
+            <label for="nota">digite suas notas bimestrais</label>
+            <input id="nota" type="number" placeholder="digite suas 4 notas">
+            <button onclick="enviarNota()">enviar nota</button>
+        </div>
+        <section>
+            <select id="notas-bimestrais" size="10"></select>
+            <button onclick="calcularMedia()">Calcular media</button>
+        </section>
+        <p class="msg"></p>
+    </main>
+
+    <script>
+        const nota = document.querySelector('#nota')
+        const selNum = document.querySelector('#notas-bimestrais')
+        const msg = document.querySelector('.msg')
+        const notas = []
+
+        //==============verificação dos dados====================
+        verificarTotalBimestres = () => {
+            if (notas.length <= 3) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        verificarValores = () => {
+            if (Number(nota.value) >= 0 && Number(nota.value) <= 10 && Number(nota.value) != "") {
+                return true
+            } else {
+                return false
+            }
+        }
+        //=======================================================
+
+        enviarNota = () => {
+            if (verificarValores() && verificarTotalBimestres()) {
+                const option = document.createElement('option')
+                selNum.appendChild(option)
+                option.innerHTML = `nota ${nota.value} adicionada`
+                
+                notas.push(Number(nota.value))
+
+                nota.value = ''
+                msg.innerHTML = ''
+                console.log
+            } else {
+                msg.innerHTML = "digite corretamente"
+            }
+        }
+
+        calcularMedia = () => {
+            if (notas.length == 4) {
+                let totalNotas = notas.length
+                let soma = 0
+                let media = 0
+                for (const nBimestrais in notas) {
+                    soma += notas[nBimestrais]
+                    media = soma/totalNotas
+                }
+                msg.innerHTML = `media das bimestrais = ${media}`
+            } else {
+                msg.innerHTML = "preencha corretamente"
+            }
+        }
+    </script>
+</body>
+</html>

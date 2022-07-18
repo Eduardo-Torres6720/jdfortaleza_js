@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de dois números</title>
+</head>
+<body style="text-align: center;">
+    <h1>Soma de dois números</h1>
+    <label for="numero1">digite um número</label>
+    <input id="numero1" type="number">
+    <label for="numero2">digite outro número</label>
+    <input id="numero2" type="number">
+    <button onclick="somarValores()">somar os valores</button>
+    <p class="msg"></p>
+
+    <script>
+        const n1 = document.querySelector('#numero1')
+        const n2 = document.querySelector('#numero2')
+        somarValores = () => {
+            const msg = document.querySelector('.msg') 
+            if (n1.value == "" || n2.value == "") {
+                msg.innerHTML = "digite os valores necessarios antes de realizar a soma"
+            } else {
+                const soma = Number(n1.value) + Number(n2.value)
+                msg.innerHTML = `A soma dos valores é ${soma}`
+            }
+        }
+    </script>
+</body>
+</html>
