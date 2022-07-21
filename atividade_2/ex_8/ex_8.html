@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verificador de nota</title>
+</head>
+<body style="text-align: center;">
+    <h1>verificador de nota</h1>
+    <div>
+        <label for="nota1">digite a primeira nota do bimestre</label>
+        <input id="nota1" type="number" placeholder="primeira nota">
+    </div>
+    <div>
+        <label for="nota2">digite a segunda nota do bimestre</label>
+        <input id="nota2" type="number" placeholder="segunda nota">
+    </div>
+    <button onclick="verificar()">verificar</button>
+    <p class="msg"></p>
+
+    <script>
+        const msg = document.querySelector('.msg')
+        
+        const verificar = () => {
+            const nota1 = document.querySelector('#nota1')
+            const nota2 = document.querySelector('#nota2')
+
+            const nota1Valor = Number(nota1.value)
+            const nota2Valor = Number(nota2.value)
+            const media = (nota1Valor + nota2Valor) / 2
+            
+            if (nota1.value == "" && nota2.value == "") {
+                msg.innerHTML = "digite os valores"
+
+            } else if (nota1Valor <= 10 && nota1Valor >= 0 && nota2Valor <= 10 && nota2Valor >= 0) {
+                if (media == 10) {
+                    msg.innerHTML = "aprovado com distinção"
+                } else if (media < 10 && media >= 7) {
+                    msg.innerHTML = "aprovado"
+                } else {
+                    msg.innerHTML = "reprovado"
+                }
+
+            } else {
+                msg.innerHTML = "digite corretamente os valores"
+            }
+            nota1.value = ""
+            nota2.value = ""
+        }
+    </script>
+</body>
+</html>

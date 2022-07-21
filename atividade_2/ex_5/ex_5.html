@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turno de estudo</title>
+</head>
+<body>
+    <h1>Turno de estudo</h1>
+    <label for="turno">digite M-matutino ou V-Vespertino ou N- Noturno</label>
+    <input id="turno" type="text" placeholder="digite seu turno">
+    <button onclick="verificar()">verificar</button>
+    <p class="msg"></p>
+
+    <script>
+        const turno = document.querySelector('#turno')
+        const msg = document.querySelector('.msg')
+
+        const verificar = () => {
+            if (turno.value == "M" || turno.value == "V" || turno.value == "N") {
+                if (turno.value == "M") {
+                    msg.innerHTML = "bom dia"
+                } else if (turno.value == "V") {
+                    msg.innerHTML = "boa tarde"
+                } else if (turno.value == "N") {
+                    msg.innerHTML = "boa noite"
+                }
+            } else {
+                msg.innerHTML = "digite corretamente e com letras maiusculas"
+            }
+            turno.value = ""
+        }
+    </script>
+</body>
+</html>

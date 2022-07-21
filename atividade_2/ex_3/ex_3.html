@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O maior número</title>
+</head>
+<body style="text-align: center;">
+    <h1>O maior número</h1>
+    <div>
+        <label for="num1">digite o primeiro valor</label>
+        <input id="num1" type="number" placeholder="primeiro valor">
+    </div>
+    <div>
+        <label for="num2">digite o segundo valor</label>
+        <input id="num2" type="number" placeholder="segundo valor">
+    </div>
+    <div>
+        <label for="num3">digite o terceiro valor</label>
+        <input id="num3" type="number" placeholder="terceiro valor">
+    </div>
+    <button onclick="verificar()">verificar</button>
+    <p class="msg"></p>
+
+    <script>
+        const msg = document.querySelector('.msg')
+        const num1 = document.querySelector('#num1')
+        const num2 = document.querySelector('#num2')
+        const num3 = document.querySelector('#num3')
+        
+        const verificar = () => {
+            const num1Valor = Number(num1.value)
+            const num2Valor = Number(num2.value)
+            const num3Valor = Number(num3.value)
+            
+            if (num1Valor.value != "" && num2.value != "" && num3Valor.value != "") {
+                if (num1Valor > num2Valor && num1Valor > num3Valor) {
+                    msg.innerHTML = `${num1Valor} é o maior`
+    
+                } else if (num2Valor > num1Valor && num2Valor > num3Valor) {
+                    msg.innerHTML = `${num2} é o maior`
+    
+                } else if (num3Valor > num1Valor && num3Valor > num2Valor) {
+                    msg.innerHTML = `${num3Valor} é o maior`
+    
+                } else if (num1Valor == num2Valor && num1Valor == num3Valor && num2Valor == num3Valor) {
+                    msg.innerHTML = `todos os valores são iguais`
+
+                } else {
+                    if (num1Valor == num2Valor) {
+                        msg.innerHTML = `dois dos valores maiores são iguais, valor ${num1Valor}`
+                    } else if (num1Valor == num3Valor) {
+                        msg.innerHTML = `dois dos valores maiores são iguais, valor ${num3Valor}`
+                    } else if (num2Valor == num3Valor) {
+                        msg.innerHTML = `dois dos valores maiores são iguais, valor ${num2Valor}`
+                    }
+                }
+            } else {
+                msg.innerHTML = "adicione corretamente os valores"
+            }
+            num1.value = ""
+            num2.value = ""
+            num3.value = ""
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verificar o sexo</title>
+</head>
+<body>
+    <h1>verificar o sexo</h1>
+    <label for="sexo">digite "f" para feminino, "m" para masculino, "n" para não identificar</label>
+    <input id="sexo" type="text" placeholder="digite seu sexo">
+    <button onclick="verificar()">verificar</button>
+    <p class="msg"></p>
+
+    <script>
+        const msg = document.querySelector('.msg')
+        
+        const verificar = () => {
+            const sexo = document.querySelector('#sexo')
+            if (sexo.value == "f" || sexo.value == "m" || sexo.value == "n") {
+                if (sexo.value == "f") {
+                    msg.innerHTML = "feminina"
+                } else if (sexo.value == "m") {
+                    msg.innerHTML = "masculino"
+                } else if (sexo.value == "n") {
+                    msg.innerHTML = "não identificado"
+                }
+            } else {
+                msg.innerHTML = "digite corretamente e com letras minusculas"
+            }
+            sexo.value = ""
+        }
+    </script>
+</body>
+</html>

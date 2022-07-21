@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O maior numero</title>
+</head>
+<body style="text-align: center;">
+    <h1>O maior numero</h1>
+    <div>
+        <label for="num1">digite o primeiro valor</label>
+        <input id="num1" type="number" placeholder="primeiro valor">
+    </div>
+    <div>
+        <label for="num2">digite o segundo valor</label>
+        <input id="num2" type="number" placeholder="segundo valor">
+    </div>
+    <button onclick="verificar()">verificar</button>
+    <p class="msg"></p>
+
+    <script>
+        const num1 = document.querySelector('#num1')
+        const num2 = document.querySelector('#num2')
+        const msg = document.querySelector('.msg')
+
+        
+        const verificar = () => {
+            const num1Valor = Number(num1.value)
+            const num2Valor = Number(num2.value)
+
+            if (num1.value != "" && num2.value != "") {
+                if (num1Valor > num2Valor) {
+                    msg.innerHTML = `O valor ${num1Valor} é maior que ${num2Valor}`
+                } else if (num1Valor == num2Valor) {
+                    msg.innerHTML = `O valor ${num1Valor} é igual a ${num2Valor}`
+                } else if (num2Valor > num1Valor) {
+                    msg.innerHTML = `O valor ${num2Valor} é maior que ${num1Valor}`
+                }
+            } else {
+                msg.innerHTML = 'digite os valores corretamente antes de verificar'
+            }
+            num1.value = ""
+            num2.value = ""
+        }
+    </script>
+</body>
+</html>
