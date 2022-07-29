@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valido ou invalido</title>
+</head>
+<body>
+    <h1>valor valido e invalido</h1>
+    <label for="valor-informado">digite um valor entre 0 e 10</label>
+    <input id="valor-informado" type="number" placeholder="digite um valor">
+    <button onclick="verificar()">verificar</button>
+    <p id="msg"></p>
+
+    <script>
+        const input = document.querySelector('#valor-informado')
+        const msg = document.querySelector('#msg')
+
+        const verificar = () => {
+            if (input.value != "") {
+                const number = Number(input.value)
+                if (number < 0 || number > 10) {
+                    msg.innerHTML = "valor invalido, digite novamente"
+                } else {
+                    msg.innerHTML = "obrigado por realizar o teste corretamente"
+                }
+            } else {
+                msg.innerHTML = "informe o valor antes de executar"
+            }
+            input.value = ""
+            input.focus()
+        }
+        // não consegui fazer o codigo com laço de repetição utilizando input
+
+        //então utilizei o prompt nessa parte
+        let input2 = Number(prompt("digite um valor de 0 a 10"))
+        while (input2 < 0 || input2 > 10 || input2 == "") {
+            input2 = prompt("valor invalido, digite novamente")
+        }
+    </script>
+</body>
+</html>

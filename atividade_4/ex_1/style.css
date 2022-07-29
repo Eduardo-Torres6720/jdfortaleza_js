@@ -1,0 +1,11 @@
+.secret {
+    display: none;
+}
+
+.no-secret {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    text-align: center;
+}

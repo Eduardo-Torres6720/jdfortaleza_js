@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma e media de valores</title>
+</head>
+<body>
+    <h1>Soma e media de valores</h1>
+    <div>
+        <label for="num">digite 5 valores</label>
+        <input id="num" type="number" placeholder="número inicial">
+        <button onclick="enviar()">enviar</button>
+    </div>
+    <section>
+        <select id="valores-aplicados" size="10"></select>
+        <button onclick="verificar()">verificar</button>
+    </section>
+    <p class="msg"></p>
+
+    <script>
+        const num = document.querySelector('#num')
+        const valores = []
+        const msg = document.querySelector('.msg')
+        const valoresAplicados = document.querySelector('#valores-aplicados')
+
+        
+        const enviar = () => {
+            //verificando valores
+            if (num.value != "" && valores.length < 5) {
+                //adicionando a o valor a array
+                valores.push(Number(num.value))
+
+                const option = document.createElement('option')
+                valoresAplicados.appendChild(option)
+                option.innerHTML = `${num.value} adicionado`
+    
+                num.value = ""
+                num.focus()
+                msg.innerHTML = ""
+            } else {
+                msg.innerHTML = "digite os valores corretamente"
+            }
+        }
+
+        const verificar = () => {
+            //verificando valores
+            if (valores.length == 5) {
+                //somando e fazendo a media
+                let soma = 0
+                let media = 0
+                for (const pos in valores) {
+                    soma += valores[pos]
+                    media = soma / valores.length
+
+                    msg.innerHTML = `a soma dos valores é ${soma} </br>
+                    a media dos valores é ${media}`
+                }
+            } else {
+                msg.innerHTML = "digite os valores corretamente antes de verificar"
+            }
+        }
+    </script>
+</body>
+</html>

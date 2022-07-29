@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fatorial</title>
+</head>
+<body>
+    <h1>fatorial</h1>
+    <label for="num">digite um numero para realizar seu fatorial</label>
+    <input id="num" type="number" placeholder="digite um numero">
+    <button onclick="calcular()">calcular</button>
+    <p id="msg"></p>
+
+    <script>
+        const calcular = () => {
+            const input = document.querySelector("#num")
+            const msg = document.querySelector("#msg")
+            const num = Number(input.value)
+            if (input.value != "" && num > 0) {
+                let calculo = 1
+                for (let n = num; n > 1; n--) {
+                    calculo = calculo * n
+                    msg.innerHTML = `${num}! = ${calculo}`
+                }
+            } else {
+                msg.innerHTML = "adicione os valores corretamente"
+            }
+            input.value = ""
+        }
+    </script>
+</body>
+</html>

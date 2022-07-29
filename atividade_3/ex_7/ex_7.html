@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabuada</title>
+</head>
+<body>
+    <h1>tabuada</h1>
+    <div>
+        <label for="num">digite o numero para realizar a tabuada</label>
+        <input id="num" type="number" placeholder="número inicial">
+    </div>
+    <section>
+        <select id="tabuada" size="10"></select>
+        <button onclick="calcular()">calcular</button>
+    </section>
+    <p class="msg"></p>
+
+    <script>
+        const calcular = () => {
+            let num = document.querySelector('#num')
+            const msg = document.querySelector('.msg')
+            const tabuada = document.querySelector('#tabuada')
+
+            msg.innerHTML = ""
+            tabuada.innerHTML = ""
+
+            if (num.value != "") {
+                let number = Number(num.value)
+                
+                for (let n = 1; n <= 10; n++) {
+                    const option = document.createElement('option')
+                    tabuada.appendChild(option)
+                    option.innerHTML += `${number} x ${n} = ${number * n}`
+                }
+            } else {
+                msg.innerHTML = "digite corretamente os valores"
+            }
+
+            num.value = ""
+        }
+    </script>
+</body>
+</html>

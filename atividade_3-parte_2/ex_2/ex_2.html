@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>série de Fibonacci</title>
+</head>
+<body style="text-align: center;">
+    <h1>série de Fibonacci</h1>
+    <label for="num-progressão">digite o numero de vezes que a serie vai progredir</label>
+    <input id="num-progressão" type="number" placeholder="numero de progressão">
+    <button onclick="verificar()">verificar</button>
+    <p id="msg"></p>
+
+    <script>
+        const verificar = () => {
+            const input = document.querySelector('#num-progressão')
+            const msg = document.querySelector('#msg')
+
+            const numRepetição = Number(input.value)
+
+            msg.innerHTML = ""
+
+            if (numRepetição >= 1 && input.value != "") {
+                let soma = 0
+                let n1 = 1
+                let n2 = 0
+                for (let n = 1; n <= numRepetição; n++) {
+                    soma = n1 + n2
+                    n1 = n2
+                    n2 = soma 
+                    msg.innerHTML += `${soma}, `
+                }
+            } else {
+                msg.innerHTML = "digite corretamente os valores"
+            }
+            input.value = ""
+            input.focus()
+        }
+    </script>
+</body>
+</html>

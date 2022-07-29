@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dia da semana</title>
+</head>
+<body>
+    <h1>Dia da semana</h1>
+    <h3 class="msg"></h3>
+    <button onclick="verificar()">verificar</button>
+
+    <script>
+        const verificar = () => {
+            const msg = document.querySelector('.msg')
+            const dia = new Date
+            const diaSemana = dia.getDay()
+            
+            switch (diaSemana) {
+                case 1 :
+                    msg.innerHTML = "hoje é domingo"
+                break
+
+                case 2:
+                    msg.innerHTML = "hoje é segunda"
+                break
+
+                case 3:
+                    msg.innerHTML = "hoje é terça"
+                break
+
+                case 4:
+                    msg.innerHTML = "hoje é quarta"
+                break
+
+                case 5:
+                    msg.innerHTML = "hoje é quinta"
+                break
+
+                case 6:
+                    msg.innerHTML = "hoje é sexta"
+                break
+
+                case 7:
+                    msg.innerHTML = "hoje é sabado"
+                break
+
+                default:
+                    msg.innerHTML = "valor invalido"
+            }
+        }
+    </script>
+</body>
+</html>

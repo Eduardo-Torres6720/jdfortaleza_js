@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>olá humano</title>
+</head>
+<body>
+    <h1 class="msg">Olá humano</h1>
+    <button onclick="enviar()">olá maquina</button>
+
+    <script>
+        const enviar = () => {
+            const msg = document.querySelector('.msg')
+            const dia = new Date
+            const horario = dia.getHours()
+
+            if (horario > 6 && horario <= 12) {
+                msg.innerHTML = `bom dia meu parceiro`
+            } else if (horario > 12 && horario <= 18) {
+                msg.innerHTML = `boa tarde meu parceiro`
+            } else if (horario > 18 && horario <= 1) {
+                msg.innerHTML = `boa noite meu parceiro`
+            } else if (horario > 1 && horario <= 6) {
+                msg.innerHTML = `acordado a essas horas?`
+            }
+        }
+    </script>
+</body>
+</html>

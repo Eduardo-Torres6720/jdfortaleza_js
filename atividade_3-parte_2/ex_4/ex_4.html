@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media aritmetica</title>
+</head>
+<body>
+    <h1>media aritmetica</h1>
+    <div>
+        <label for="num-notas">digite as notas</label>
+        <input id="num-notas" type="number" placeholder="notas">
+        <button onclick="enviar()">enviar</button>
+    </div>
+    <section>
+        <select id="tab" size="10"></select>
+        <button onclick="verificar()">verificar</button>
+    </section>
+    <p id="msg-repetiçao"></p>
+    <p id="msg"></p>
+
+    <script>
+        const inputNotas = document.querySelector('#num-notas')
+        const msg = document.querySelector('#msg')
+        const tab = document.querySelector('#tab')
+        const msgRepetiçao = document.querySelector('#msg-repetiçao')
+        const valores = []
+
+        let numRepetiçao = Number(prompt("digite quantas notas seram usadas"))
+        
+        while (numRepetiçao == "" || numRepetiçao < 2) {
+            numRepetiçao = Number(prompt("digite novamente o valor"))
+        }
+
+        msgRepetiçao.innerHTML = `numero de notas: ${numRepetiçao}`
+        const enviar = () => {
+            const numNotas = Number(inputNotas.value)
+            if (valores.length < numRepetiçao && inputNotas.value != "") {
+                valores.push(numNotas)
+                const option = document.createElement('option')
+                option.innerHTML = `${numNotas} adicionado`
+                tab.appendChild(option)
+                msg.innerHTML = ""
+                inputNotas.value = ""
+                inputNotas.focus()
+            } else {
+                msg.innerHTML = "você ja chegou ao limite de notas adicionadas"
+            }
+        }
+
+        const verificar = () => {
+            if (valores.length == numRepetiçao) {
+                let soma = 0
+                let media = 0
+                for (const pos in valores) {
+                    soma += valores[pos] 
+                    media = soma / valores.length
+                }
+                msg.innerHTML = `media dos valores ${media}`
+            } else {
+                msg.innerHTML = "adicione todos os valores antes de executar"
+            }
+        }
+    </script>
+</body>
+</html>

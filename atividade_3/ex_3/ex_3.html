@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contagem do intervalo dos numeros</title>
+</head>
+<body style="text-align: center;">
+    <h1>contagem do intervalo dos numeros</h1>
+    <div>
+        <label for="num-inicio">digite o numero inical</label>
+        <input id="num-inicio" type="number" placeholder="número inicial">
+    </div>
+    <div>
+        <label for="num-final">digite o numero final</label>
+        <input id="num-final" type="number" placeholder="número final">
+    </div>
+    <button onclick="verificar()">iniciar contagem</button>
+    <p class="msg"></p>
+
+    <script>
+        const verificar = () => {
+            let inicio = document.querySelector('#num-inicio')
+            let final = document.querySelector('#num-final')
+            const msg = document.querySelector('.msg')
+
+            msg.innerHTML = ""
+
+            let numInicio = Number(inicio.value)
+            let numFinal = Number(final.value)
+            if (inicio.value != "" && final.value != "" && numInicio < numFinal) {
+
+                numInicio++
+                while (numInicio < numFinal) {
+                    msg.innerHTML += `${numInicio}, `
+                    numInicio++
+                }
+            } else {
+                msg.innerHTML = "digite corretamente os valores"
+            }
+            inicio.value = ""
+            final.value = ""
+        }
+    </script>
+</body>
+</html>

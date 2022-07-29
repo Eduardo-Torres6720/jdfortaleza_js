@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou impar</title>
+</head>
+<body style="text-align: center;">
+    <h1>Par ou impar</h1>
+    <label for="num">digite um número</label>
+    <input id="num" type="number" placeholder="digite um numero">
+    <button onclick="verificar()">verificar</button>
+    <p class="msg"></p>
+
+    <script>
+        const verificar = () => {
+            const num = document.querySelector('#num')
+            const msg = document.querySelector('.msg')
+
+            const number = Number(num.value)
+            if (num.value != "") {
+                if (number % 2) {
+                    msg.innerHTML = `${number} é impar`
+                } else {
+                    msg.innerHTML = `${number} é par`
+                }
+            } else {
+                msg.innerHTML = "adicione um valor antes de verificar"
+            }
+            num.value = ""
+        }
+    </script>
+</body>
+</html>

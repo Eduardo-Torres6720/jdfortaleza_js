@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reajuste de salario</title>
+</head>
+<body style="text-align: center;">
+    <h1>reajuste de salário</h1>
+    <label for="salario">informe seu saláro atual</label>
+    <input id="salario" type="number" placeholder="Salário">
+    <button onclick="verificar()">verificar</button>
+    <p class="msg"></p>
+
+    <script>
+        const verificar = () => {
+            const salario = document.querySelector('#salario')
+            const msg = document.querySelector('.msg')
+
+            const money = Number(salario.value)
+            if (salario.value != "" && money > 0) {
+                if (money <= 280) {
+                    const percentual = 20
+                    const aumento = (money * percentual) / 100
+                    const aumentoTotal = aumento + money
+
+                    msg.innerHTML = `salario anterior: ${money} </br>
+                    percentual de aumento: ${percentual}% </br>
+                    valor do aumento: ${aumento} </br>
+                    novo salario: ${aumentoTotal}`
+
+                } else if (money > 280 && money <= 700) {
+                    const percentual = 15
+                    const aumento = (money * percentual) / 100
+                    const aumentoTotal = aumento + money
+
+                    msg.innerHTML = `salario anterior: ${money} </br>
+                    percentual de aumento: ${percentual}% </br>
+                    valor do aumento: ${aumento} </br>
+                    novo salario: ${aumentoTotal}`
+
+                }else if (money > 700 && money <= 1500) {
+                    const percentual = 10
+                    const aumento = (money * percentual) / 100
+                    const aumentoTotal = aumento + money
+
+                    msg.innerHTML = `salario anterior: ${money} </br>
+                    percentual de aumento: ${percentual}% </br>
+                    valor do aumento: ${aumento} </br>
+                    novo salario: ${aumentoTotal}`
+
+                } else {
+                    const percentual = 5
+                    const aumento = (money * percentual) / 100
+                    const aumentoTotal = aumento + money
+
+                    msg.innerHTML = `salario anterior: ${money} </br>
+                    percentual de aumento: ${percentual}% </br>
+                    valor do aumento: ${aumento} </br>
+                    novo salario: ${aumentoTotal}`
+                }
+            } else {
+                msg.innerHTML = "adicione os valores corretamente"
+            }
+            salario.value = ""
+        }
+    </script>
+</body>
+</html>

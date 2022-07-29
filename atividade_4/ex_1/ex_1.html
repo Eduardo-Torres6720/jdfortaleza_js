@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>keyPress</title>
+</head>
+<body>
+    <h1>keyPress</h1>
+    <h2 class="msg">keypress é um evento que ao clicar em alguma tecla, ele realizara uma ação; exemplo: clique em qualquer tecla, depois na tecla "l"
+    </h2>
+    <div class="secret"><h3>achou</h3></div>
+
+    <script>
+        const msg = document.querySelector('.msg')
+        const secret = document.querySelector('.secret')
+        document.addEventListener ('keypress', (event) => {
+            const keyName = event.key;
+            if (keyName == "l") {
+                prompt(`você digitou a tecla secreta ${keyName}`)
+                secret.classList.add("no-secret")
+            } else {
+                prompt (`você digitou a tecla ${keyName}`);
+            }
+        });
+    </script>
+</body>
+</html>

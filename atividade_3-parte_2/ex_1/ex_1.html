@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quantidade de numeros impars e pares</title>
+</head>
+<body style="text-align: center;">
+    <h1>quantidade de números impars e pares</h1>
+    <div>
+        <label for="num">digite os números</label>
+        <input id="num" type="number" placeholder="digite os números">
+        <button onclick="enviar()">enviar</button>
+    </div>
+    <section>
+        <select id="num-adicionados" size="10"></select>
+        <button onclick="verificar()">verificar</button>
+    </section>
+    <p id="msg-impar"></p>
+    <p id="msg-par"></p>
+
+    <script>
+        const input = document.querySelector('#num')
+        const numAdicionados = document.querySelector("#num-adicionados")
+        const msgImpar = document.querySelector('#msg-impar')
+        const msgPar = document.querySelector('#msg-par')
+        const valores = []
+
+        const enviar = () => {
+            if (valores.length < 10 && input.value != "") {
+                const number = Number(input.value)
+                valores.push(number)
+                const option = document.createElement('option')
+                numAdicionados.appendChild(option)
+                option.innerHTML = `${number} foi adicionado`
+                msgImpar.innerHTML = ""
+                msgPar.innerHTML = ""
+                input.value = ""
+                input.focus()
+            }
+            else {
+                msgImpar.innerHTML = "chegou ao limite de numeros adicionados ou valor não adicionado"
+            }
+
+        }
+        const verificar = () => {
+            if (valores.length == 10) {
+                let par = []
+                let impars = []
+                for (const pos in valores) {
+                    if (valores[pos] % 2) {
+                        impars.push(valores[pos])
+                        msgImpar.innerHTML = `impars: ${impars} quantidade: ${impars.length}`
+                    }
+                    else {
+                        par.push(valores[pos])
+                        msgPar.innerHTML = `pares: ${par} quantidade: ${par.length}`
+                        
+                    }
+                }
+            } else {
+                msgImpar.innerHTML = "adicione dez valores antes de realizar a conta"
+            }
+        }
+    </script>
+</body>
+</html>
